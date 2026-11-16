@@ -1,0 +1,256 @@
+/* Основные настройки и шрифты */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* Плавный переход цвета фона при скролле управляется через JS, 
+       но зададим базу */
+    background-color: #fffde7; /* Нежно-желтый старт */
+    color: #333;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    overflow-x: hidden;
+}
+
+/* Класс для темной темы (добавляется скриптом) */
+body.dark-mode {
+    color: #e0e0e0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Шапка */
+header {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.logo {
+    font-size: 4rem;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: #555;
+}
+
+/* Видео */
+#video-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.subtitle {
+    margin-top: 15px;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* Карточки персонажей (Flip Cards) */
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.cards-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 400px;
+    perspective: 1000px; /* Эффект 3D */
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Класс для переворота добавляется через JS */
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.flip-card-front {
+    background-color: #fff;
+    color: black;
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.hint {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 10px;
+}
+
+.flip-card-back {
+    background: linear-gradient(135deg, #fdfbf7 0%, #e6e6fa 100%);
+    color: #333;
+    transform: rotateY(180deg);
+    text-align: left;
+    align-items: flex-start;
+    overflow-y: auto; /* Если текста много */
+}
+
+.close-btn {
+    margin-top: 15px;
+    padding: 5px 15px;
+    background: none;
+    border: 1px solid #333;
+    cursor: pointer;
+    border-radius: 5px;
+    align-self: center;
+}
+
+/* Блок фанатов */
+.post-input-area {
+    background: rgba(255,255,255,0.5);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+    font-family: inherit;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #87CEEB; /* Голубой акцент */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #5fb8dc;
+}
+
+.fan-post {
+    background: rgba(255,255,255,0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border-left: 5px solid #90EE90; /* Зеленый акцент */
+    transition: 0.3s;
+}
+
+.fan-post.pinned {
+    border-left: 5px solid #FFD700; /* Желтый для закрепа */
+    background: rgba(255, 255, 224, 0.9);
+}
+
+.pin-icon {
+    font-size: 0.8rem;
+    color: #b8860b;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.author {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.content {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.like-btn {
+    background: none;
+    color: #ff6b6b;
+    padding: 5px;
+}
+
+.like-btn:hover {
+    background: none;
+    transform: scale(1.1);
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 0.9rem;
+    opacity: 0.6;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weigh - Fan Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <h1 class="logo">Weigh</h1>
+    </header>
+
+    <!-- Секция Видео -->
+    <section id="video-section" class="container">
+        <div class="video-wrapper">
+            <!-- Встраивание видео из VK -->
+            <iframe src="https://vk.com/video_ext.php?oid=-216404212&id=456239269&hd=2" 
+                    width="853" height="480" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </div>
+        <p class="subtitle">Официальный клип</p>
+    </section>
+
+    <!-- Секция Персонажей -->
+    <section id="characters-section" class="container">
+        <h2>Персонажи</h2>
+        <div class="cards-grid">
+            
+            <!-- Карточка 1 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://via.placeholder.com/300x400/FFD700/FFFFFF?text=Hero+1" alt="Персонаж 1">
+                        <h3>Главный Герой</h3>
+                        <span class="hint">Нажми, чтобы узнать больше</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Психологический портрет</h3>
+                        <p>Здесь располагается объемный анализ персонажа. Его мотивация скрыта за маской безразличия, но каждый жест выдает внутреннюю борьбу...</p>
+                        <button class="close-btn">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 2 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://via.placeholder.com/300x400/87CEEB/FFFFFF?text=Hero+2" alt="Персонаж 2">
+                        <h3>Антагонист</h3>
+                        <span class="hint">Нажми, чтобы узнать больше</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Скрытые мотивы</h3>
+                        <p>Глубокий разбор действий антагониста. Почему он поступил именно так? Анализ цветовой гаммы его костюма и символики.</p>
+                        <button class="close-btn">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Карточка 3 -->
+             <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://via.placeholder.com/300x400/90EE90/FFFFFF?text=Hero+3" alt="Персонаж 3">
+                        <h3>Наблюдатель</h3>
+                        <span class="hint">Нажми, чтобы узнать больше</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Роль в сюжете</h3>
+                        <p>Этот персонаж связывает все линии повествования. Детальный разбор его появления в кадре и влияние на финал.</p>
+                        <button class="close-btn">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Секция Фанатов -->
+    <section id="fans-section" class="container">
+        <h2>Теории и Разборы</h2>
+        
+        <div class="post-input-area">
+            <textarea placeholder="Напишите свою теорию..."></textarea>
+            <button onclick="addPost()">Опубликовать</button>
+        </div>
+
+        <div id="posts-container">
+            <!-- Пример закрепленного поста -->
+            <div class="fan-post pinned">
+                <div class="pin-icon">📌 Закреплено</div>
+                <div class="author">Fanatic_99</div>
+                <div class="content">
+                    <strong>Разбор концовки:</strong> Обратите внимание на тень на 2:15. Это прямой отсыл к дебютному альбому! Цвета меняются не просто так, это метафора угасания надежды.
+                </div>
+                <div class="actions">
+                    <button class="like-btn" onclick="toggleLike(this)">❤️ <span>142</span></button>
+                </div>
+            </div>
+
+            <!-- Обычный пост -->
+            <div class="fan-post">
+                <div class="author">MusicLover</div>
+                <div class="content">
+                    Мне кажется, желтый цвет в начале символизирует ложное счастье. А когда экран темнеет, герои наконец-то становятся настоящими.
+                </div>
+                <div class="actions">
+                    <button class="like-btn" onclick="toggleLike(this)">❤️ <span>24</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Weigh Fan Community</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
